@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitor /var/spool/bluesky/ for public keys
+Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+After=network.target
+Requires=bluesky-pubkey.service
+
+[Path]
+PathExistsGlob=/var/spool/bluesky/bs@(admin|bluesky)*.pub
+Unit=bluesky-gateway.service
+
+[Install]
+WantedBy=multi-user.target

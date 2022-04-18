@@ -1,0 +1,11 @@
+[Unit]
+Description=Check the up/down status of alerted computers
+Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/share/bluesky/systemd/check-status.sh
+
+[Install]
+WantedBy=multi-user.target

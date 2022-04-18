@@ -1,0 +1,11 @@
+[Unit]
+Description=Add submitted public keys to sshd and database
+Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/share/bluesky/systemd/add-pubkey.sh
+
+[Install]
+WantedBy=multi-user.target

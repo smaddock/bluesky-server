@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# BlueSkyConnect macOS SSH tunnel
+#
+# sets up BlueSky server in a DEB-flavored linux environment
+#
+# See https://github.com/BlueSkyTools/BlueSkyConnect
+# Licensed under the Apache License, Version 2.0
+
+########################################
+###           MAIN SCRIPT            ###
+########################################
+
+# double-check permissions on installed BlueSky files (unnecessary?)
+chmod -R 755 /usr/share/bluesky
+
+# populate config with hostname as an intial guess at the FQDN
+# could attempt a reverse lookup here as well
+hostname > /etc/bluesky/server.txt
+
+# set up BlueSky Administrator user account
+adduser \
+    --system \
+    --home /home/bsadmin \
+    --shell /bin/bash \
+    --ingroup adm \
+    --disabled-password \
+    --gecos "BlueSky Administrator" \
+    bsadmin
+# move authorized_keys and omit these steps
+mkdir -m go-rwx /home/bsadmin/.ssh
+chown bsadmin /home/bsadmin/.ssh
+
+# set up BlueSky Client user account
+adduser \
+    --system \
+    --home /home/bsclient \
+    --shell /bin/bash \
+    --group \
+    --disabled-password \
+    --gecos "BlueSky Client" \
+    bsclient
+mkdir -m go-rwx /home/bsclient/.ssh
+chown -R bsclient /home/bsclient/.ssh
+
+# create SSH keys - used for shelling from the server into client devices
+ssh-keygen \
+    -q \
+    -C "blueskyd@$(hostname)" \
+    -f /var/lib/bluesky/blueskyd \
+    -N "" \
+    -t ed25519
+
+# create self-signed certificate for bsadmin - used for encrypting uploaded SSH keys to the server for admins
+# verify certificate options... let's get an actual subject
+# also allow for other transit encryption services
+openssl req \
+    -days 3650 \
+    -keyout /var/lib/bluesky/bsadmin.key \
+    -newkey rsa:2048 \
+    -nodes \
+    -out /var/lib/bluesky/bsadmin.pem \
+    -subj "/" \
+    -x509
+
+# create self-signed certificate for bsclient - used for encrypting uploaded SSH keys to the server for clients
+openssl req \
+    -days 3650 \
+    -keyout /var/lib/bluesky/bsclient.key \
+    -newkey rsa:2048 \
+    -nodes \
+    -out /var/lib/bluesky/bsclient.pem \
+    -subj "/" \
+    -x509
+
+# Load up systemd unit files
+systemctl daemon-reload
+systemctl enable bluesky-pubkey.service
+systemctl enable bluesky-pubkey.path
+systemctl enable bluesky-status.service
+systemctl enable bluesky-status.timer

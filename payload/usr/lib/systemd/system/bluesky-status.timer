@@ -1,0 +1,12 @@
+[Unit]
+Description=Kicks off check-status every 5 min
+Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+After=network.target
+Requires=bluesky-status.service
+
+[Timer]
+OnCalendar=*-*-* *:*/5:00
+Unit=bluesky-status.service
+
+[Install]
+WantedBy=timers.target
