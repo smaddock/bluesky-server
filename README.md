@@ -6,13 +6,12 @@ This is a _very_ early development version of BlueSky Server 3, and should not b
 
 1. On a Debian-based device, clone this repo
 1. Run: `./build.sh`
-1. Copy the `/build/bluesky-server_<version>.deb.tar.gz` to your destination
+1. Copy the created package from `/build` to your destination
 1. Commit and push the `/build/.build_number` changes to avoid version number conflicts
 
 ## Use
 
-1. On a Debian-based device, download the package from GitHub
-1. Un-tar/gzip the package file
+1. On a Debian-based device, download the latest production package from the [Releases](releases)
 1. Run: `sudo apt install ./bluesky-server_<version>.deb`
 1. If the `hostname` is different from the server’s FQDN, edit `/etc/bluesky/server.txt` with the actual FQDN
 1. Edit `/etc/bluesky/email.ini` with your SMTP info to receive notices and alerts
@@ -20,10 +19,10 @@ This is a _very_ early development version of BlueSky Server 3, and should not b
 
 ## To Do
 
-- Get a generic email for BlueSkyTools for DEB package maintainer
 - Test post-install script
+- Add data sanitization for new device register requests
 - Generate macOS config profile with signing certificate
 - Update control and systemd doc links to upstream repo
+- Get a generic email for BlueSkyTools for DEB package maintainer
 - Rewrite API calls as REST endpoints and verbs
-- Add data sanitization for new device register requests
 - Test other ways this could break

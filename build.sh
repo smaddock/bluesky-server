@@ -21,7 +21,7 @@ sed \
 # Build package (compressed with xz level 6)
 dpkg-deb --root-owner-group --build ./payload/ ./build
 
-# Wrap archive for better transport
-pushd build
-tar -czvf "bluesky-server_3.0.0alpha~${BUILD}_all.deb.tar.gz" "bluesky-server_3.0.0alpha~${BUILD}_all.deb"
-popd
+# Wrap archive for better transport?
+#pushd build
+#tar -czvf "bluesky-server_3.0.0alpha~${BUILD}_all.deb.tar.gz" "bluesky-server_3.0.0alpha~${BUILD}_all.deb"
+#popd
