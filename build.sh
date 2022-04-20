@@ -23,5 +23,5 @@ dpkg-deb --root-owner-group --build ./payload/ ./build
 
 # Wrap archive for better transport
 pushd build
-tar -czf "bluesky-server_3.0.0alpha~${BUILD}_all.deb.tar.gz" "bluesky-server_3.0.0alpha~${BUILD}_all.deb"
+tar -czvf "bluesky-server_3.0.0alpha~${BUILD}_all.deb.tar.gz" "bluesky-server_3.0.0alpha~${BUILD}_all.deb"
 popd
