@@ -1,6 +1,6 @@
 [Unit]
 Description=Monitor /var/spool/bluesky/ for public keys
-Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+Documentation=https://github.com/smaddock/bluesky-server
 After=network.target
 Requires=bluesky-pubkey.service
 

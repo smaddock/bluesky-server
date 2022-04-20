@@ -1,10 +1,10 @@
 Architecture: all
 Depends: adduser, curl, grep, hostname, openssh-client, openssh-server, openssl, sed, sqlite3, systemd, uuid-runtime
 Description: Server for the BlueSkyConnect macOS SSH tunnel
-Homepage: https://github.com/BlueSkyTools
+Homepage: https://github.com/smaddock/bluesky-server
 Maintainer: Blue Sky Tools Team <need-an-email@blue-sky-domain.net>
 Package: bluesky-server
 Section: net
 Suggests: caddy, logrotate
 Uploaders: Shawn Maddock <smaddock@gocirrus.com>
-Version: 3.0.0-1
+Version: 3.0.0alpha~1

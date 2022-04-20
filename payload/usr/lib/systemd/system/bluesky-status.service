@@ -1,6 +1,6 @@
 [Unit]
 Description=Check the up/down status of alerted computers
-Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+Documentation=https://github.com/smaddock/bluesky-server
 After=network.target
 
 [Service]

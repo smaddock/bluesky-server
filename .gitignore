@@ -27,5 +27,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-### BUILD STUFF ###
-build/
+### DEBIAN PACKAGE ARCHIVE STUFF ###
+build/*.deb
+build/*.gz
+build/*.tar
+build/*.zip

@@ -1,6 +1,6 @@
 [Unit]
 Description=Add submitted public keys to sshd and database
-Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+Documentation=https://github.com/smaddock/bluesky-server
 After=network.target
 
 [Service]

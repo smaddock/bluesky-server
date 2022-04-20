@@ -1,6 +1,6 @@
 [Unit]
 Description=Kicks off check-status every 5 min
-Documentation=https://github.com/BlueSkyTools/BlueSkyConnect/wiki
+Documentation=https://github.com/smaddock/bluesky-server
 After=network.target
 Requires=bluesky-status.service
 
