@@ -7,4 +7,4 @@ Package: bluesky-server
 Section: net
 Suggests: caddy, logrotate
 Uploaders: Shawn Maddock <smaddock@gocirrus.com>
-Version: 3.0.0alpha~1
+Version: 3.0.0.alpha.8

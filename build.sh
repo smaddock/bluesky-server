@@ -14,7 +14,7 @@ echo "$BUILD" > build/.build_number
 # Update DEB control file
 sed \
     --regexp-extended \
-    --expression="s/~[0-9]+$/~$BUILD/g" \
+    --expression="s/\.[0-9]+$/\.$BUILD/g" \
     --in-place \
     payload/DEBIAN/control
 
