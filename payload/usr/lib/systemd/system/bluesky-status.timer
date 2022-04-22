@@ -5,7 +5,7 @@ After=network.target
 Requires=bluesky-status.service
 
 [Timer]
-OnCalendar=*-*-* *:*/5:00
+OnCalendar=*-*-* *:00/5:00
 Unit=bluesky-status.service
 
 [Install]
